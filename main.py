@@ -8,13 +8,13 @@ RESET = "\u001b[0m"
 print("WORDLE GAME")
 
 correct = input("Enter the correct word: ")
-#correct = "SHAKE"
+
 
 print("Start guessing!")
 
 for j in range(6):
     guess = input("Guess the word: ").lower()
-#check each letter
+    #check each letter
     for i in range(0, 5):
         if guess[i] == correct[i]:
             print(f"{BG_GREEN}{guess[i]}{RESET}", end="")
