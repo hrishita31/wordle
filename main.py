@@ -1,14 +1,27 @@
-import os
-#os.system("cls")
-
-
 BG_GREEN = "\u001b[32m"
 BG_YELLOW = "\u001b[43m"
 RESET = "\u001b[0m"
-print("WORDLE GAME")
+print("LET'S PLAY A WORDLE GAME!")
 
-correct = input("Enter the correct word: ")
+import csv
+import random
+import pandas as pd
 
+words = []
+#reading the csv file
+with open("5_letters.csv", 'r') as f:
+  csvreader = csv.reader(f)
+  for row in csvreader:
+    if row:
+        words.append(row[0])
+
+#randomly chosing a word from the csv file
+correct = random.choice(words)
+#print(f"Randomly chosen word is: {correct}")
+print("A word has been randomly generated so let's begin the guessing game!")
+
+data = pd.read_csv("5_letters.csv")
+#data
 
 print("Start guessing!")
 
@@ -27,9 +40,9 @@ for j in range(6):
 
     #check if guess is correct
     if guess == correct:
-        print("You win!")
+        print("You win!Congratulations!")
         exit()
 
-print("You lose!")
+print("You lose! Better luck next time!")
 print(f"The correct word was {correct}")
 
